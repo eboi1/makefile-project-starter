@@ -40,60 +40,22 @@ void tearDown(void)
   list_destroy(&lst_);
 }
 
-// void test_create_destroy(void)
-// {
-//   list_t *lst = NULL;
-//   lst = list_init(destroy_data, compare_to);
-//   TEST_ASSERT_FALSE(lst == NULL);
-//   TEST_ASSERT_FALSE(lst->head == NULL);
-//   TEST_ASSERT_TRUE(lst->size == 0);
-//   TEST_ASSERT_TRUE(lst->head->data == NULL);
-//   // Make sure the function pointers are pointing to the correct fuctions
-//   TEST_ASSERT_TRUE(lst->destroy_data == destroy_data);
-//   TEST_ASSERT_TRUE(lst->compare_to == compare_to);
-//   // Make sure we are a circular linked list
-//   TEST_ASSERT_FALSE(lst->head->next == NULL);
-//   TEST_ASSERT_FALSE(lst->head->prev == NULL);
-//   TEST_ASSERT_TRUE(lst->head->next == lst->head->prev);
-//   list_destroy(&lst);
-//   TEST_ASSERT_TRUE(lst == NULL);
-// }
-
 void test_create_destroy(void)
 {
   list_t *lst = NULL;
   lst = list_init(destroy_data, compare_to);
-  
-  printf("Checking if list is initialized...\n");
   TEST_ASSERT_FALSE(lst == NULL);
-  
-  printf("Checking if head is initialized...\n");
   TEST_ASSERT_FALSE(lst->head == NULL);
-  
-  printf("Checking if size is 0...\n");
   TEST_ASSERT_TRUE(lst->size == 0);
-  
-  printf("Checking if head data is NULL...\n");
   TEST_ASSERT_TRUE(lst->head->data == NULL);
-  
-  printf("Checking if destroy_data function pointer is correct...\n");
+  // Make sure the function pointers are pointing to the correct fuctions
   TEST_ASSERT_TRUE(lst->destroy_data == destroy_data);
-  
-  printf("Checking if compare_to function pointer is correct...\n");
   TEST_ASSERT_TRUE(lst->compare_to == compare_to);
-  
-  printf("Checking if head next is not NULL...\n");
+  // Make sure we are a circular linked list
   TEST_ASSERT_FALSE(lst->head->next == NULL);
-  
-  printf("Checking if head prev is not NULL...\n");
   TEST_ASSERT_FALSE(lst->head->prev == NULL);
-  
-  printf("Checking if head next and prev are the same...\n");
   TEST_ASSERT_TRUE(lst->head->next == lst->head->prev);
-  
   list_destroy(&lst);
-  
-  printf("Checking if list is destroyed...\n");
   TEST_ASSERT_TRUE(lst == NULL);
 }
 
