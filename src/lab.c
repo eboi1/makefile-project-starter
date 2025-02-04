@@ -59,10 +59,7 @@ list_t *list_add(list_t *list, void *data) {
     list->head->next->prev = new_node;
     list->head->next = new_node;
 
-    // Update the sentinel node's prev pointer if this is the first node
-    if (list->size == 0) {
-        list->head->prev = new_node;
-    }
+    //code removed here after code review
 
     list->size++;
     return list;
@@ -85,10 +82,7 @@ void *list_remove_index(list_t *list, size_t index) {
     void *data = current->data;
     free(current);
     list->size--;
-    if (list->size == 0) {
-        list->head->next = list->head;
-        list->head->prev = list->head;
-    }
+    //code removed here after code review
     return data;
 }
 
