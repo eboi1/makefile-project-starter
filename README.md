@@ -1,4 +1,6 @@
-# Makefile Project Template
+# CS452 P1 - Eric Johnson 
+
+This project was created from a forked Makefile project template. 
 
 Steps to configure, build, run, and test the project.
 
