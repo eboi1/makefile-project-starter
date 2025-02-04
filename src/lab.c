@@ -79,12 +79,9 @@ void *list_remove_index(list_t *list, size_t index) {
     }
     current->prev->next = current->next;
     current->next->prev = current->prev;
-    if (current == list->head->next) {
-        list->head->next = current->next;
-    }
-    if (current == list->head->prev) {
-        list->head->prev = current->prev;
-    }
+
+    //Removed unneccesary condition blocks after code review here
+
     void *data = current->data;
     free(current);
     list->size--;
